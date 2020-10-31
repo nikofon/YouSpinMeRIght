@@ -5,17 +5,19 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private Animator am;
     public int gravityscale;
     public float movespeed;
     public Vector2 size;
     BoxCollider2D checker;
     List<Collider2D> res = new List<Collider2D>();
-    private bool Frozen { get { return frozen; } set { rb.gravityScale = value ? 0 : gravityscale; rb.velocity = value ? Vector2.zero : rb.velocity; frozen = value; } }
+    private bool Frozen { get { return frozen; } set { rb.gravityScale = value ? 0 : gravityscale; rb.velocity = value ? Vector2.zero : rb.velocity; am.SetBool("Frozen", value) ; frozen = value; } }
     private bool frozen;
 
     // Start is called before the first frame update
     void Start()
     {
+        am = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         checker = GetComponents<BoxCollider2D>()[0].isTrigger == false ? GetComponents<BoxCollider2D>()[1] : GetComponents<BoxCollider2D>()[0];
     }
@@ -27,14 +29,12 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.S))
             {
-                Debug.Log("KeyDown");
                 Frozen = false;
             }
             return;
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            Debug.Log("KeyDown");
             Frozen = true;
             return;
         }

@@ -4,24 +4,50 @@ using UnityEngine;
 
 public class PlayerWinCondition : MonoBehaviour
 {
-    List<GameObject> targets;
+    private List<GameObject> targets;
+    private bool levelEnded = false;
     private void Start()
     {
         targets = new List<GameObject>();
         targets.AddRange(GameObject.FindGameObjectsWithTag("Target"));
+        foreach (GameObject t in targets)
+        {
+            t.GetComponentInChildren<ParticleSystem>().GetComponent<Renderer>().sortingLayerName = "Foreground";
+        }
+
     }
     private void Update()
     {
+        GameObject toRemove = null;
         foreach(GameObject t in targets)
         {
-            if(Vector3.Distance(transform.position, t.transform.position) < 0.1)
+            if(Vector2.Distance(transform.position, t.transform.position) < 1.5f)
             {
-                targets.Remove(t);
+                Debug.Log("if triggered");
+                t.GetComponentInChildren<ParticleSystem>().Play();
+                toRemove = t;
             }
         }
-        if(targets.Count == 0)
+        if (toRemove != null)
         {
+            targets.Remove(toRemove);
+            DestroyDessert(toRemove);
+            toRemove = null;
+        }
+        if (targets.Count == 0 && !levelEnded)
+        {
+            levelEnded = true;
             LevelLoader.instance.LoadNextLevel();
         }
+    }
+    private void DestroyDessert(GameObject dessert)
+    {
+        StartCoroutine(DestroyDesert(dessert));
+    }
+    private IEnumerator DestroyDesert(GameObject dessert)
+    {
+        yield return new WaitForSeconds(0.5f);
+        Destroy(dessert);
+        yield break;
     }
 }
