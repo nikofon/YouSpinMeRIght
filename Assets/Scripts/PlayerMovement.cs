@@ -25,6 +25,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            LevelLoader.instance.LoadMainMenu();
+        }
         if (Frozen)
         {
             if (Input.GetKeyDown(KeyCode.S))
