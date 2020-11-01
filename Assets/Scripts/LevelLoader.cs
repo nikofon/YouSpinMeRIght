@@ -14,13 +14,13 @@ public class LevelLoader : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(this.gameObject);
     }
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
-        if(instance != this)
+        if (instance != this)
         {
+            Debug.Log("destroing");
             Destroy(gameObject);
-        }   
+        }
     }
     public void LoadMainMenu()
     {
@@ -28,12 +28,11 @@ public class LevelLoader : MonoBehaviour
     }
     public void LoadSameLevel()
     {
-        LoadLevel(currentLevel);
+        LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
     }
     public void LoadNextLevel()
     {
-        currentLevel++;
-        LoadLevel(currentLevel);
+        LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
 

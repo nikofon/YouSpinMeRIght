@@ -8,7 +8,7 @@ public class CameraMovement : MonoBehaviour
     public BoxCollider2D inChecker;
     private Transform pivotPosition;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         pivotPosition = GameObject.Find("GridPivot").GetComponent<Transform>();
     }

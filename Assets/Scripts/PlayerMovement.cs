@@ -44,7 +44,6 @@ public class PlayerMovement : MonoBehaviour
         if (!Frozen)
         {
             checker.OverlapCollider(new ContactFilter2D(), res);
-            Debug.Log(res.Count);
             if (res.Count > 1)
             {
                 transform.position = (Vector2)transform.position + movespeed * new Vector2(1, 0);

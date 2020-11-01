@@ -23,7 +23,6 @@ public class PlayerWinCondition : MonoBehaviour
         {
             if(Vector2.Distance(transform.position, t.transform.position) < 1.5f)
             {
-                Debug.Log("if triggered");
                 t.GetComponentInChildren<ParticleSystem>().Play();
                 toRemove = t;
             }
