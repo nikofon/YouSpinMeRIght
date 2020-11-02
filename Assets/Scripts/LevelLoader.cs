@@ -18,13 +18,22 @@ public class LevelLoader : MonoBehaviour
     {
         if (instance != this)
         {
-            Debug.Log("destroing");
             Destroy(gameObject);
         }
     }
+    public void DelayedLoadNext()
+    {
+        StartCoroutine(DLL());
+    }
+    private IEnumerator DLL()
+    {
+        yield return new WaitForSeconds(2f);
+        LoadNextLevel();
+        yield break;
+    }
     public void LoadMainMenu()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Main Menu");
     }
     public void LoadSameLevel()
     {

@@ -5,6 +5,7 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
+    private int currentTrack = 0;
     public static AudioManager instance;
     public List<AudioClip> MusicClips;
     public List<AudioClip> Sounds;
@@ -14,8 +15,19 @@ public class AudioManager : MonoBehaviour
     public AudioMixerSnapshot[] normal, musicOff;
     private void Awake()
     {
+        if (instance != null)
+        {
+            Destroy(this.gameObject);
+        }
         instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+    private void OnLevelWasLoaded(int level)
+    {
+        if(instance != this)
+        {
+            instance = this;
+        }
     }
     public void PlaySound(string name)
     {
@@ -28,6 +40,10 @@ public class AudioManager : MonoBehaviour
                 AS.Play();
                 return;
             }
+            else if (AS.clip != null && AS.clip.name == name)
+            {
+                return;
+            }
         }
         AudioSource As = gameObject.AddComponent<AudioSource>();
         As.outputAudioMixerGroup = SFXGroup;
@@ -37,6 +53,11 @@ public class AudioManager : MonoBehaviour
     private void Update()
     {
         transform.position = Camera.main.transform.position;
+        if (MusicSource.isPlaying == false)
+        {
+            currentTrack = (currentTrack + 1) % MusicClips.Count;
+            PlayMusic(MusicClips[currentTrack].name);
+        }
     }
     public void PlayMusic(string name)
     {

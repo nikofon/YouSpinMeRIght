@@ -24,6 +24,7 @@ public class PlayerWinCondition : MonoBehaviour
             if(Vector2.Distance(transform.position, t.transform.position) < 1.5f)
             {
                 t.GetComponentInChildren<ParticleSystem>().Play();
+                AudioManager.instance.PlaySound("PKU");
                 toRemove = t;
             }
         }
@@ -36,7 +37,8 @@ public class PlayerWinCondition : MonoBehaviour
         if (targets.Count == 0 && !levelEnded)
         {
             levelEnded = true;
-            LevelLoader.instance.LoadNextLevel();
+            AudioManager.instance.PlaySound("win");
+            LevelLoader.instance.DelayedLoadNext();
         }
     }
     private void DestroyDessert(GameObject dessert)

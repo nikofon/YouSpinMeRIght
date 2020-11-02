@@ -47,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!Frozen)
         {
+            AudioManager.instance.PlaySound("Steps");
             checker.OverlapCollider(new ContactFilter2D(), res);
             if (res.Count > 1)
             {

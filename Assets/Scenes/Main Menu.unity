@@ -1311,6 +1311,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdd05bc1497f2094292d2a4112385d44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &4913255276264213182
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4913255275024365596, guid: dc72b50de7339a44389e88a316fc1d36,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.9368615
+      objectReference: {fileID: 0}
+    - target: {fileID: 4913255275024365596, guid: dc72b50de7339a44389e88a316fc1d36,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.15105575
+      objectReference: {fileID: 0}
+    - target: {fileID: 4913255275024365596, guid: dc72b50de7339a44389e88a316fc1d36,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.13512431
+      objectReference: {fileID: 0}
+    - target: {fileID: 4913255275024365596, guid: dc72b50de7339a44389e88a316fc1d36,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4913255275024365596, guid: dc72b50de7339a44389e88a316fc1d36,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4913255275024365596, guid: dc72b50de7339a44389e88a316fc1d36,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4913255275024365596, guid: dc72b50de7339a44389e88a316fc1d36,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4913255275024365596, guid: dc72b50de7339a44389e88a316fc1d36,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4913255275024365596, guid: dc72b50de7339a44389e88a316fc1d36,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4913255275024365596, guid: dc72b50de7339a44389e88a316fc1d36,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4913255275024365596, guid: dc72b50de7339a44389e88a316fc1d36,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4913255275024365601, guid: dc72b50de7339a44389e88a316fc1d36,
+        type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dc72b50de7339a44389e88a316fc1d36, type: 3}
 --- !u!224 &4961449131260561973
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1352,7 +1421,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Press R to rotate your surroundings
 
-    Press S to freeze your charatcer
+    Press S to freeze your character
 
     Press
     ESC to quit to main menu
